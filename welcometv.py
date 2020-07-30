@@ -8,7 +8,8 @@ options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_argument('start-fullscreen')
 
 driver = webdriver.Chrome( options=options ,executable_path= Path.cwd() / 'chromedriver')
-
+driver.get('chrome://settings/')
+driver.execute_script('chrome.settingsPrivate.setDefaultZoom(.50);')
 while True:
     driver.get("http://form10dash.herokuapp.com/")
     sleep(120)
